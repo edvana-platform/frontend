@@ -1,5 +1,5 @@
 import { LoginUser, AuthUser } from "@/types/user";
-import { mockStudentUsers } from "../../../../shared/mocks/users/students";
+import { mockStudentUsers } from "../../shared/mocks/users/students";
 
 export interface LoginRequest {
   email: string;
