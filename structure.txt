@@ -1,0 +1,307 @@
+📦src
+ ┣ 📂assets
+ ┃ ┗ 📂images
+ ┃ ┃ ┣ 📜ColorFulBooks.jpg
+ ┃ ┃ ┗ 📜README.md
+ ┣ 📂components
+ ┃ ┣ 📂charts
+ ┃ ┃ ┗ 📜README.md
+ ┃ ┣ 📂layout
+ ┃ ┃ ┗ 📜README.md
+ ┃ ┗ 📂ui
+ ┃ ┃ ┣ 📜accordion.tsx
+ ┃ ┃ ┣ 📜alert-dialog.tsx
+ ┃ ┃ ┣ 📜alert.tsx
+ ┃ ┃ ┣ 📜aspect-ratio.tsx
+ ┃ ┃ ┣ 📜avatar.tsx
+ ┃ ┃ ┣ 📜badge.tsx
+ ┃ ┃ ┣ 📜breadcrumb.tsx
+ ┃ ┃ ┣ 📜button.tsx
+ ┃ ┃ ┣ 📜calendar.tsx
+ ┃ ┃ ┣ 📜card.tsx
+ ┃ ┃ ┣ 📜carousel.tsx
+ ┃ ┃ ┣ 📜chart.tsx
+ ┃ ┃ ┣ 📜checkbox.tsx
+ ┃ ┃ ┣ 📜collapsible.tsx
+ ┃ ┃ ┣ 📜command.tsx
+ ┃ ┃ ┣ 📜confirmation-modal.tsx
+ ┃ ┃ ┣ 📜context-menu.tsx
+ ┃ ┃ ┣ 📜dialog.tsx
+ ┃ ┃ ┣ 📜drawer.tsx
+ ┃ ┃ ┣ 📜dropdown-button.tsx
+ ┃ ┃ ┣ 📜dropdown-menu.tsx
+ ┃ ┃ ┣ 📜enhanced-button.tsx
+ ┃ ┃ ┣ 📜form.tsx
+ ┃ ┃ ┣ 📜hover-card.tsx
+ ┃ ┃ ┣ 📜input-otp.tsx
+ ┃ ┃ ┣ 📜input.tsx
+ ┃ ┃ ┣ 📜label.tsx
+ ┃ ┃ ┣ 📜loading-spinner.tsx
+ ┃ ┃ ┣ 📜menubar.tsx
+ ┃ ┃ ┣ 📜navigation-menu.tsx
+ ┃ ┃ ┣ 📜pagination.tsx
+ ┃ ┃ ┣ 📜popover.tsx
+ ┃ ┃ ┣ 📜progress.tsx
+ ┃ ┃ ┣ 📜radio-group.tsx
+ ┃ ┃ ┣ 📜resizable.tsx
+ ┃ ┃ ┣ 📜scroll-area.tsx
+ ┃ ┃ ┣ 📜select.tsx
+ ┃ ┃ ┣ 📜separator.tsx
+ ┃ ┃ ┣ 📜sheet.tsx
+ ┃ ┃ ┣ 📜sidebar.tsx
+ ┃ ┃ ┣ 📜skeleton.tsx
+ ┃ ┃ ┣ 📜slider.tsx
+ ┃ ┃ ┣ 📜success-toast.tsx
+ ┃ ┃ ┣ 📜switch.tsx
+ ┃ ┃ ┣ 📜table.tsx
+ ┃ ┃ ┣ 📜tabs.tsx
+ ┃ ┃ ┣ 📜textarea.tsx
+ ┃ ┃ ┣ 📜toast.tsx
+ ┃ ┃ ┣ 📜toaster.tsx
+ ┃ ┃ ┣ 📜toggle-group.tsx
+ ┃ ┃ ┣ 📜toggle.tsx
+ ┃ ┃ ┗ 📜tooltip.tsx
+ ┣ 📂constants
+ ┃ ┣ 📜README.txt
+ ┃ ┣ 📜apiRoutes.ts
+ ┃ ┣ 📜curriculum.ts
+ ┃ ┗ 📜roles.ts
+ ┣ 📂context
+ ┃ ┗ 📜AuthContext.tsx
+ ┣ 📂dashboard
+ ┃ ┣ 📂old-student
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂ai-tutor
+ ┃ ┃ ┃ ┣ 📂assignments
+ ┃ ┃ ┃ ┣ 📂courses
+ ┃ ┃ ┃ ┣ 📂exams
+ ┃ ┃ ┃ ┣ 📂overview
+ ┃ ┃ ┃ ┣ 📂support
+ ┃ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┃ ┗ 📜StudentSidebar.tsx
+ ┃ ┃ ┣ 📂layout
+ ┃ ┃ ┣ 📂states
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┗ 📜OverviewView.tsx
+ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┣ 📜StudentDashboard.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂parent
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┗ 📜ParentSidebar.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┣ 📜ChildrenView.tsx
+ ┃ ┃ ┃ ┣ 📜CommunicationView.tsx
+ ┃ ┃ ┃ ┣ 📜OverviewView.tsx
+ ┃ ┃ ┃ ┣ 📜ProgressView.tsx
+ ┃ ┃ ┃ ┗ 📜SettingsView.tsx
+ ┃ ┃ ┣ 📜ParentDashboard.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂schooladmin
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┗ 📜SchoolAdminSidebar.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┣ 📜CoursesView.tsx
+ ┃ ┃ ┃ ┣ 📜OverviewView.tsx
+ ┃ ┃ ┃ ┣ 📜ReportsView.tsx
+ ┃ ┃ ┃ ┣ 📜SettingsView.tsx
+ ┃ ┃ ┃ ┗ 📜UsersView.tsx
+ ┃ ┃ ┣ 📜SchoolAdminDashboard.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂selfstudent
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┃ ┗ 📜SelfStudentSidebar.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┗ 📜OverviewView.tsx
+ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┣ 📜SelfStudentDashboard.tsx
+ ┃ ┃ ┣ 📜SelfStudentSignUp.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂selfteacher
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┃ ┗ 📜SelfTeacherSidebar.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┗ 📜OverviewView.tsx
+ ┃ ┃ ┣ 📜.DS_Store
+ ┃ ┃ ┣ 📜SelfTeacherDashboard.tsx
+ ┃ ┃ ┣ 📜SelfTeacherSignUp.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂student
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂ai-tutor
+ ┃ ┃ ┃ ┃ ┣ 📂chatbot
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜AiChatWindow.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜AiInputBar.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜ChatMessage.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜ChatbotPanel.tsx
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┃ ┣ 📂quiz-generator
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜CompletedQuizzes.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜CreateQuizHeader.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜GeneratedQuizList.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜OngoingQuizzes.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizCreatorForm.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizFeatures.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizFilters.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizGenerator.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizList.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizStatsCards.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizSummary.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜QuizTipsCard.tsx
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂assignments
+ ┃ ┃ ┃ ┃ ┣ 📜AssignmentCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜AssignmentList.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂exams
+ ┃ ┃ ┃ ┃ ┣ 📜ExamCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ExamList.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ExamsControls.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ExamsHeader.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂overview
+ ┃ ┃ ┃ ┃ ┣ 📜StudentGreeting.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SummaryCards.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜WeeklyProgress.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂resources
+ ┃ ┃ ┃ ┃ ┣ 📜ResourceCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ResourceFilter.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ResourceList.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂schedule
+ ┃ ┃ ┃ ┃ ┣ 📜ScheduleCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ScheduleFilters.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ScheduleNote.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂settings
+ ┃ ┃ ┃ ┃ ┣ 📂Account
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜AccountEditForm.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜AccountForm.tsx
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProfileInformation.tsx
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┃ ┣ 📂General
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜PreferencesForm.tsx
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂shared
+ ┃ ┃ ┃ ┃ ┣ 📜DashboardCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜DataControls.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜FilterDropdown.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜PageHeader.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜PaginationControls.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜ProgressBar.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SearchInput.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SortControls.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜StatCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜StatusBadge.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┣ 📂subjects
+ ┃ ┃ ┃ ┃ ┣ 📜SubjectCard.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SubjectList.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SubjectsControls.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SubjectsHeader.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┃ ┗ 📂support
+ ┃ ┃ ┃ ┃ ┣ 📜FAQAccordion.tsx
+ ┃ ┃ ┃ ┃ ┣ 📜SupportForm.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜index.ts
+ ┃ ┃ ┣ 📂layout
+ ┃ ┃ ┃ ┣ 📜StudentNavbar.tsx
+ ┃ ┃ ┃ ┗ 📜StudentSidebar.tsx
+ ┃ ┃ ┣ 📂states
+ ┃ ┃ ┃ ┣ 📜ErrorBoundary.tsx
+ ┃ ┃ ┃ ┗ 📜Loading.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┣ 📂ai-tutor
+ ┃ ┃ ┃ ┃ ┣ 📜ChatbotView.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜QuizGeneratorView.tsx
+ ┃ ┃ ┃ ┣ 📂settings
+ ┃ ┃ ┃ ┃ ┣ 📜AccountSettingsView.tsx
+ ┃ ┃ ┃ ┃ ┗ 📜GeneralSettingsView.tsx
+ ┃ ┃ ┃ ┣ 📜AssignmentsView.tsx
+ ┃ ┃ ┃ ┣ 📜ExamsView.tsx
+ ┃ ┃ ┃ ┣ 📜OverviewView.tsx
+ ┃ ┃ ┃ ┣ 📜ResourcesView.tsx
+ ┃ ┃ ┃ ┣ 📜ScheduleView.tsx
+ ┃ ┃ ┃ ┣ 📜SubjectsView.tsx
+ ┃ ┃ ┃ ┗ 📜SupportView.tsx
+ ┃ ┃ ┣ 📜StudentDashboard.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂superadmin
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┗ 📜SuperAdminSidebar.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┣ 📜AnalyticsView.tsx
+ ┃ ┃ ┃ ┣ 📜OverviewView.tsx
+ ┃ ┃ ┃ ┣ 📜SchoolsView.tsx
+ ┃ ┃ ┃ ┣ 📜SettingsView.tsx
+ ┃ ┃ ┃ ┣ 📜SystemView.tsx
+ ┃ ┃ ┃ ┗ 📜UsersView.tsx
+ ┃ ┃ ┣ 📜SuperAdminDashboard.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┣ 📂teacher
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┗ 📜TeacherSidebar.tsx
+ ┃ ┃ ┣ 📂views
+ ┃ ┃ ┃ ┣ 📜AssessmentView.tsx
+ ┃ ┃ ┃ ┣ 📜CoursesView.tsx
+ ┃ ┃ ┃ ┣ 📜OverviewView.tsx
+ ┃ ┃ ┃ ┣ 📜SettingsView.tsx
+ ┃ ┃ ┃ ┗ 📜StudentsView.tsx
+ ┃ ┃ ┣ 📜TeacherDashboard.tsx
+ ┃ ┃ ┗ 📜routes.tsx
+ ┃ ┗ 📜.DS_Store
+ ┣ 📂hooks
+ ┃ ┣ 📜README.txt
+ ┃ ┣ 📜use-glassmorphism.tsx
+ ┃ ┣ 📜use-mobile.tsx
+ ┃ ┣ 📜use-toast.ts
+ ┃ ┣ 📜useAuth.ts
+ ┃ ┣ 📜useLocalStorage.ts
+ ┃ ┗ 📜useRoleRedirect.ts
+ ┣ 📂layouts
+ ┃ ┗ 📜DashboardLayout.tsx
+ ┣ 📂pages
+ ┃ ┣ 📂home
+ ┃ ┃ ┣ 📜HomePage.tsx
+ ┃ ┃ ┣ 📜HomePageContent.tsx
+ ┃ ┃ ┣ 📜HomePageFooter.tsx
+ ┃ ┃ ┗ 📜HomePageNavbar.tsx
+ ┃ ┣ 📜Login.tsx
+ ┃ ┣ 📜NotFound.tsx
+ ┃ ┗ 📜SchoolInquiry.tsx
+ ┣ 📂router
+ ┃ ┣ 📜ProtectedRoute.tsx
+ ┃ ┗ 📜index.tsx
+ ┣ 📂styles
+ ┃ ┣ 📜glassmorphism.ts
+ ┃ ┗ 📜tailwind.css
+ ┣ 📂types
+ ┃ ┣ 📜README.txt
+ ┃ ┣ 📜api.d.ts
+ ┃ ┣ 📜quiz.ts
+ ┃ ┣ 📜school.ts
+ ┃ ┗ 📜user.ts
+ ┣ 📂utils
+ ┃ ┣ 📂api
+ ┃ ┃ ┣ 📜auth.ts
+ ┃ ┃ ┣ 📜axios.ts
+ ┃ ┃ ┗ 📜student.ts
+ ┃ ┣ 📂auth
+ ┃ ┃ ┣ 📜authStorage.ts
+ ┃ ┃ ┣ 📜index.ts
+ ┃ ┃ ┣ 📜jwt.ts
+ ┃ ┃ ┗ 📜permissions.ts
+ ┃ ┣ 📂data
+ ┃ ┃ ┣ 📜getParentById.ts
+ ┃ ┃ ┗ 📜getSchoolById.ts
+ ┃ ┣ 📂format
+ ┃ ┗ 📜cn.ts
+ ┣ 📜.DS_Store
+ ┣ 📜App.tsx
+ ┣ 📜index.css
+ ┗ 📜main.tsx
