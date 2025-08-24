@@ -38,7 +38,7 @@ import SchoolAdminEdvanaBankView from "@/dashboard/schooladmin/views/EdvanaBankV
 import SchoolAdminParentsView from "@/dashboard/schooladmin/views/ParentsView";
 import SchoolAdminSupportView from "@/dashboard/schooladmin/views/SupportView";
 import { GeneralSettingsView, AccountSettingsView } from "@/dashboard/schooladmin/views/settings";
-import { ErrorDisplay } from "@/dashboard/schooladmin/states";
+import { SchoolAdminDashboardErrorFallback } from "@/dashboard/schooladmin/states/ErrorBoundary";
 
 // Other dashboards
 import { SelfStudentDashboard } from "../dashboard/selfstudent/SelfStudentDashboard";
@@ -124,7 +124,7 @@ export function AppRouter() {
             <Route path="general" element={<GeneralSettingsView />} />
             <Route path="account" element={<AccountSettingsView />} />
           </Route>
-          <Route path="*" element={<ErrorDisplay error="Page not found" />} />
+       <Route path="*" element={<SchoolAdminDashboardErrorFallback />} />
         </Route>
 
         {/* OTHER DASHBOARDS (can be nested later the same way) */}
