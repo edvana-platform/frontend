@@ -32,4 +32,4 @@ export const clearAuthData = (): void => {
 };
 
 // Quick check
-export const isAuthenticated = (): boolean => !!(getStoredToken() && getStoredUser());
+export const isAuthenticated = (): boolean => !!getStoredUser();

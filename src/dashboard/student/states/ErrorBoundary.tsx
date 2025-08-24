@@ -79,7 +79,7 @@ export function StudentDashboardErrorFallback() {
         </div>
         
         <Link
-          to="/edvana/dashboard/student/overview"
+          to="/dashboard/student"
           className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF715B] to-[#FF715B]/90 text-white font-medium rounded-xl hover:from-[#FF715B]/90 hover:to-[#FF715B]/80 transition-all duration-200 shadow-lg hover:shadow-[#FF715B]/20"
         >
           <Home className="h-4 w-4" />

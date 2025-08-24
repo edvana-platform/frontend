@@ -1,28 +1,31 @@
 // src/hooks/useRoleRedirect.ts
-
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
-import { USER_ROLES } from "@/constants/roles";
+import { USER_ROLES, normalizeUserRole } from "@/constants/roles";
 
 /**
- * Automatically redirects user to the appropriate dashboard if authenticated.
- * Also redirects unauthenticated users to login.
+ * mode:
+ * - "guard" (default) → if NOT authed, go to /login; if authed, go to role dashboard
+ * - "login"           → ONLY redirect when authed; do nothing if not authed
  */
-export const useRoleRedirect = () => {
+export const useRoleRedirect = (mode: "guard" | "login" = "guard") => {
   const { user, isAuthenticated, isLoading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoading) return;
 
-    if (!isAuthenticated) {
-      navigate("/login");
-      return;
+    if (mode === "guard") {
+      if (!isAuthenticated) {
+        navigate("/login");
+        return;
+      }
     }
 
-    if (user) {
-      switch (user.role) {
+    if (isAuthenticated && user) {
+      const normalized = normalizeUserRole(user.role);
+      switch (normalized) {
         case USER_ROLES.STUDENT:
           navigate("/dashboard/student");
           break;
@@ -32,18 +35,20 @@ export const useRoleRedirect = () => {
         case USER_ROLES.PARENT:
           navigate("/dashboard/parent");
           break;
-        case USER_ROLES.SCHOOL_ADMIN:
+        case USER_ROLES.ADMIN:
           navigate("/dashboard/schooladmin");
           break;
         case USER_ROLES.SUPER_ADMIN:
           navigate("/dashboard/superadmin");
           break;
         default:
+          // If role is unknown, send to login
           navigate("/login");
       }
     }
-  }, [user, isAuthenticated, isLoading, navigate]);
+  }, [mode, user, isAuthenticated, isLoading, navigate]);
 };
+
 
 export const useRedirectToDashboard = () => {
   const { user } = useAuth();
@@ -51,6 +56,7 @@ export const useRedirectToDashboard = () => {
 
   const redirectToDashboard = () => {
     if (!user) return;
+console.log("Redirecting role:", user?.role);
 
     switch (user.role) {
       case USER_ROLES.STUDENT:
@@ -62,7 +68,7 @@ export const useRedirectToDashboard = () => {
       case USER_ROLES.PARENT:
         navigate('/dashboard/parent');
         break;
-      case USER_ROLES.SCHOOL_ADMIN:
+      case USER_ROLES.ADMIN:
         navigate('/dashboard/schooladmin');
         break;
       case USER_ROLES.SUPER_ADMIN:

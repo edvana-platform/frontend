@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { getStoredToken, clearAuthData } from '@/utils/auth/authStorage';
 
 const api = axios.create({
-baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +11,7 @@ baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api',
 
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('edvana_auth_token');
+    const token = getStoredToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -22,10 +23,10 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('edvana_auth_token');
-      localStorage.removeItem('edvana_auth_user');
-      window.location.href = '/login';
+    const isLoginPage = window.location.pathname === "/login";
+    if (error.response?.status === 401 && !isLoginPage) {
+      clearAuthData();
+      window.location.href = "/login";
     }
     return Promise.reject(error);
   }

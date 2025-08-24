@@ -1,6 +1,8 @@
-import React from 'react';
-import { useAuth } from '../hooks/useAuth';
-import { UserRole } from '../constants/roles';
+import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import { UserRole } from "../constants/roles";
+import FullScreenLoader from "@/components/states/FullScreenLoader";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -9,39 +11,41 @@ interface ProtectedRouteProps {
   fallback?: React.ReactNode;
 }
 
-export function ProtectedRoute({ 
-  children, 
-  requiredRole, 
+export function ProtectedRoute({
+  children,
+  requiredRole,
   requiredRoles,
-  fallback 
+  fallback,
 }: ProtectedRouteProps) {
   const { isAuthenticated, user, isLoading } = useAuth();
+  const location = useLocation();
 
-  // Show loading state
   if (isLoading) {
+  return <FullScreenLoader />;  // ⬅️ branded background + spinner
+}
+
+  // Not authenticated → redirect to /login with "from" state
+  if (!isAuthenticated || !user) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1EA896]"></div>
-      </div>
+      <Navigate
+        to="/login"
+        replace
+        state={{ from: location }}  // so you can send them back after login
+      />
     );
   }
 
-  // Not authenticated
-  if (!isAuthenticated || !user) {
-    return fallback || <div>Access denied. Please log in.</div>;
-  }
-
-  // Check role requirements
+  // Role checks
   if (requiredRole && user.role !== requiredRole) {
-    return fallback || <div>Access denied. Insufficient permissions.</div>;
+    return fallback ?? <Navigate to="/login" replace />;
   }
-
   if (requiredRoles && !requiredRoles.includes(user.role)) {
-    return fallback || <div>Access denied. Insufficient permissions.</div>;
+    return fallback ?? <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;
 }
+
 
 // Higher-order component for role-based access
 export function withRoleProtection<P extends object>(

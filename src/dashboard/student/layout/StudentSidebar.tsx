@@ -13,7 +13,6 @@ import {
   Menu,
   X,
   ChevronDown,
-  ChevronRight,
   MessageSquare,
   Brain,
   Calendar,

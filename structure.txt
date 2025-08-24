@@ -69,23 +69,6 @@
  ┣ 📂context
  ┃ ┗ 📜AuthContext.tsx
  ┣ 📂dashboard
- ┃ ┣ 📂old-student
- ┃ ┃ ┣ 📂components
- ┃ ┃ ┃ ┣ 📂ai-tutor
- ┃ ┃ ┃ ┣ 📂assignments
- ┃ ┃ ┃ ┣ 📂courses
- ┃ ┃ ┃ ┣ 📂exams
- ┃ ┃ ┃ ┣ 📂overview
- ┃ ┃ ┃ ┣ 📂support
- ┃ ┃ ┃ ┣ 📜.DS_Store
- ┃ ┃ ┃ ┗ 📜StudentSidebar.tsx
- ┃ ┃ ┣ 📂layout
- ┃ ┃ ┣ 📂states
- ┃ ┃ ┣ 📂views
- ┃ ┃ ┃ ┗ 📜OverviewView.tsx
- ┃ ┃ ┣ 📜.DS_Store
- ┃ ┃ ┣ 📜StudentDashboard.tsx
- ┃ ┃ ┗ 📜routes.tsx
  ┃ ┣ 📂parent
  ┃ ┃ ┣ 📂components
  ┃ ┃ ┃ ┗ 📜ParentSidebar.tsx
@@ -277,6 +260,15 @@
  ┣ 📂router
  ┃ ┣ 📜ProtectedRoute.tsx
  ┃ ┗ 📜index.tsx
+ ┣ 📂shared
+ ┃ ┣ 📂mocks
+ ┃ ┃ ┣ 📂users
+ ┃ ┃ ┃ ┣ 📜parents.ts
+ ┃ ┃ ┃ ┣ 📜students.ts
+ ┃ ┃ ┃ ┗ 📜teachers.ts
+ ┃ ┃ ┗ 📜schools.ts
+ ┃ ┣ 📜schema.ts
+ ┃ ┗ 📜structure.txt
  ┣ 📂styles
  ┃ ┣ 📜glassmorphism.ts
  ┃ ┗ 📜tailwind.css
@@ -295,6 +287,7 @@
  ┃ ┃ ┣ 📜authStorage.ts
  ┃ ┃ ┣ 📜index.ts
  ┃ ┃ ┣ 📜jwt.ts
+ ┃ ┃ ┣ 📜logout.ts
  ┃ ┃ ┗ 📜permissions.ts
  ┃ ┣ 📂data
  ┃ ┃ ┣ 📜getParentById.ts
@@ -304,4 +297,5 @@
  ┣ 📜.DS_Store
  ┣ 📜App.tsx
  ┣ 📜index.css
- ┗ 📜main.tsx
+ ┣ 📜main.tsx
+ ┗ 📜vite-env.d.ts

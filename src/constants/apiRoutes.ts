@@ -32,7 +32,7 @@ export const API_ROUTES = {
   },
   
   // School admin endpoints
-  SCHOOL_ADMIN: {
+  ADMIN: {
     TEACHERS: '/schooladmin/teachers',
     STUDENTS: '/schooladmin/students',
     CURRICULUM: '/schooladmin/curriculum',

@@ -1,8 +1,11 @@
-import { LoginUser, AuthUser } from "@/types/user";
-import { mockStudentUsers } from "../../shared/mocks/users/students";
+// src/utils/api/auth.ts
 
+import api from "@/utils/api/axios";
+import { AuthUser } from "@/types/user";
+import { getStoredUser } from "@/utils/auth/authStorage";
 export interface LoginRequest {
-  email: string;
+  email?: string;
+  phone?: string;
   password: string;
 }
 
@@ -11,7 +14,15 @@ export interface RegisterRequest {
   password: string;
   firstName: string;
   lastName: string;
-  role: 'student' | 'teacher' | 'parent' | 'schooladmin' | 'superadmin';
+  role: "student" | "teacher" | "parent" | "admin" | "superadmin";
+  gradeLevel?: string;
+  subGrade?: string;
+  schoolId?: string;
+  parentId?: string;
+  phone?: string;
+  subjectSpecialties?: string[];
+  gradeLevels?: string[];
+  childrenIds?: string[];
 }
 
 export interface AuthResponse {
@@ -21,47 +32,95 @@ export interface AuthResponse {
 
 export const authAPI = {
   login: async (credentials: LoginRequest): Promise<AuthResponse> => {
-    const { email, password } = credentials;
+    try {
+      const response = await api.post("/auth/login", credentials);
+      return response.data;
+    } catch (error: any) {
+      const status = error.response?.status;
+      const serverMsg =
+        error.response?.data?.message || error.response?.data?.error;
 
-    const matchedUser = mockStudentUsers.find(
-      (u: LoginUser) => u.email.toLowerCase() === email.toLowerCase().trim() && u.password === password
-    );
+      if (error.code === "ECONNABORTED") {
+        throw new Error(
+          "Server is taking too long to respond. Please try again."
+        );
+      }
 
-    if (matchedUser) {
-      const { password: _, ...safeUser } = matchedUser;
+      // Controlled messages for known status codes
+      if (status === 400 || status === 401) {
+        throw new Error(serverMsg || "Invalid email or password.");
+      }
 
-      return {
-        user: safeUser,
-        token: 'mock_token_' + Date.now(),
-      };
+      if (status === 404) {
+        throw new Error("User not found.");
+      }
+
+      if (status === 500) {
+        throw new Error(
+          "Something went wrong on the server. Please try again later."
+        );
+      }
+
+      // Fallback for anything else
+      throw new Error("An unexpected error occurred. Please try again.");
     }
-
-    throw new Error('Invalid email or password');
   },
 
   register: async (userData: RegisterRequest): Promise<AuthResponse> => {
-    const user: AuthUser = {
-      id: Date.now().toString(),
-      email: userData.email,
-      firstName: userData.firstName,
-      lastName: userData.lastName,
-      role: userData.role,
-      schoolId: 'school-uuid-1',
-    };
+    try {
+      const response = await api.post("/users", userData);
+      return response.data;
+    } catch (error: any) {
+      const status = error.response?.status;
+      const serverMsg = error.response?.data?.message;
 
-    return {
-      user,
-      token: 'mock_token_' + Date.now(),
-    };
-  },
+      if (status === 400) {
+        throw new Error(serverMsg || "Invalid registration data.");
+      }
 
-  logout: async (): Promise<void> => Promise.resolve(),
-
-  verifyToken: async (): Promise<AuthUser> => {
-    const storedUser = localStorage.getItem('edvana_auth_user');
-    if (storedUser) {
-      return JSON.parse(storedUser);
+      throw new Error("Registration failed. Please try again.");
     }
-    throw new Error('No valid token');
   },
+
+  logout: async (): Promise<void> => {
+    try {
+      await api.post("/auth/logout");
+      return; // success
+    } catch (error: any) {
+      const status = error?.response?.status;
+      const serverMsg =
+        error?.response?.data?.message || error?.response?.data?.error;
+
+      // Timeout
+      if (error?.code === "ECONNABORTED") {
+        throw new Error(
+          "Server is taking too long to respond. Please try again."
+        );
+      }
+
+      // Already logged out / invalid session — treat as success
+      if (status === 401 || status === 403) {
+        return;
+      }
+
+      if (status === 404) {
+        throw new Error("Logout endpoint not found.");
+      }
+
+      if (status === 500) {
+        throw new Error(
+          "Something went wrong on the server. Please try again later."
+        );
+      }
+
+      // Fallback
+      throw new Error(serverMsg || "Failed to log out. Please try again.");
+    }
+  },
+
+verifyToken: async (): Promise<AuthUser> => {
+  const user = getStoredUser();
+  if (user) return user;
+  throw new Error("No valid session found");
+},
 };
