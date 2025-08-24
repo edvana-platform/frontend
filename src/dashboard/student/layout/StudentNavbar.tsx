@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, User, Settings, LogOut } from "lucide-react";
 import {
@@ -11,19 +12,21 @@ import { Button } from "@/components/ui/button";
 import { useCurrentUser } from "@/hooks/useAuth";
 import { getSchoolById } from "@/utils/data/getSchoolById";
 import { useAuth } from "@/context/AuthContext";
-import { useToast } from "@/hooks/use-toast";
 import { performLogout } from "@/utils/auth/logout";
+import { SuccessToast } from "@/components/ui/success-toast";
 
 export function StudentNavbar() {
   const navigate = useNavigate();
   const user = useCurrentUser();
   const { logout } = useAuth();
-  const { toast } = useToast();
   const school = user ? getSchoolById(user.schoolId) : null;
 
+  const [showLogoutToast, setShowLogoutToast] = useState(false);
+
   const handleLogout = () => {
-    performLogout(logout, navigate);
-    toast({ title: "Logged out", description: "You have been logged out." });
+    performLogout(logout, navigate, () => {
+      setShowLogoutToast(true);
+    });
   };
 
   const handleSettings = () => {
@@ -113,6 +116,12 @@ export function StudentNavbar() {
           </div>
         </div>
       </div>
+      <SuccessToast
+        isOpen={showLogoutToast}
+        onClose={() => setShowLogoutToast(false)}
+        title="Logout Successful"
+        description="Redirecting to login..."
+      />
     </header>
   );
 }

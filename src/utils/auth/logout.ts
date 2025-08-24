@@ -2,8 +2,15 @@
 
 export const performLogout = (
   logout: () => void,
-  navigate: (path: string) => void
+  navigate: (path: string) => void,
+  onBeforeLogout?: () => void // optional callback
 ) => {
-  logout(); // Clear AuthContext & localStorage
-  navigate("/login"); // Redirect to login
+  if (onBeforeLogout) {
+    onBeforeLogout();
+  }
+
+  setTimeout(() => {
+    logout();             // Clear auth state
+    navigate("/login");   // Redirect to login
+  }, 1500); // 👈 Delay long enough for toast to be seen
 };
