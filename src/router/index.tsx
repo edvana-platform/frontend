@@ -23,6 +23,7 @@ import StudentScheduleView from "@/dashboard/student/views/ScheduleView";
 import StudentResourcesView from "@/dashboard/student/views/ResourcesView";
 import StudentAccountSettingsView from "@/dashboard/student/views/settings/AccountSettingsView";
 import StudentGeneralSettingsView from "@/dashboard/student/views/settings/GeneralSettingsView";
+import StudentSupportView from "@/dashboard/student/views/SupportView";
 import { StudentDashboardErrorFallback } from "@/dashboard/student/states/ErrorBoundary";
 
 // School Admin Dashboard
@@ -37,7 +38,10 @@ import SchoolAdminResourcesView from "@/dashboard/schooladmin/views/ResourcesVie
 import SchoolAdminEdvanaBankView from "@/dashboard/schooladmin/views/EdvanaBankView";
 import SchoolAdminParentsView from "@/dashboard/schooladmin/views/ParentsView";
 import SchoolAdminSupportView from "@/dashboard/schooladmin/views/SupportView";
-import { GeneralSettingsView, AccountSettingsView } from "@/dashboard/schooladmin/views/settings";
+import {
+  GeneralSettingsView,
+  AccountSettingsView,
+} from "@/dashboard/schooladmin/views/settings";
 import { SchoolAdminDashboardErrorFallback } from "@/dashboard/schooladmin/states/ErrorBoundary";
 
 // Other dashboards
@@ -80,12 +84,15 @@ export function AppRouter() {
           <Route path="assignments" element={<StudentAssignmentsView />} />
           <Route path="schedule" element={<StudentScheduleView />} />
           <Route path="resources" element={<StudentResourcesView />} />
-
+          <Route path="support" element={<StudentSupportView />} />
           {/* AI tutor group */}
           <Route path="ai-tutor">
             <Route index element={<Navigate to="chatbot" replace />} />
             <Route path="chatbot" element={<StudentChatbotView />} />
-            <Route path="quiz-generator" element={<StudentQuizGeneratorView />} />
+            <Route
+              path="quiz-generator"
+              element={<StudentQuizGeneratorView />}
+            />
           </Route>
 
           {/* Settings group */}
@@ -124,7 +131,7 @@ export function AppRouter() {
             <Route path="general" element={<GeneralSettingsView />} />
             <Route path="account" element={<AccountSettingsView />} />
           </Route>
-       <Route path="*" element={<SchoolAdminDashboardErrorFallback />} />
+          <Route path="*" element={<SchoolAdminDashboardErrorFallback />} />
         </Route>
 
         {/* OTHER DASHBOARDS (can be nested later the same way) */}
