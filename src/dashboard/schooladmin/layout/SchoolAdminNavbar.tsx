@@ -8,9 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { performLogout } from "@/utils/auth/logout";
-import { useAuth } from "@/context/AuthContext";
-import { useToast } from "@/hooks/use-toast";
+import { useLogoutWithToast } from "@/hooks/useLogoutWithToast";
 
 interface SchoolAdminNavbarProps {
   isMobileOpen: boolean;
@@ -22,8 +20,6 @@ export function SchoolAdminNavbar({
   setIsMobileOpen,
 }: SchoolAdminNavbarProps) {
   const navigate = useNavigate();
-  const { logout } = useAuth();
-  const { toast } = useToast();
   const toggleMobile = () => setIsMobileOpen(!isMobileOpen);
 
   // School admin user data - in a real app, this would come from authentication context
@@ -34,10 +30,7 @@ export function SchoolAdminNavbar({
     school: "Green Hills Academy",
   };
 
-  const handleLogout = () => {
-    performLogout(logout, navigate);
-    toast({ title: "Logged out", description: "You have been logged out." });
-  };
+const { handleLogout, LogoutToast } = useLogoutWithToast();
 
   const handleSettings = () => {
     navigate("/dashboard/schooladmin/settings");
@@ -138,6 +131,7 @@ export function SchoolAdminNavbar({
           </div>
         </div>
       </div>
+      {LogoutToast}
     </header>
   );
 }
