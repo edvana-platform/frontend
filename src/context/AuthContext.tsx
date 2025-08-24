@@ -147,7 +147,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     const isPhone = /^[+]?[\d\s\-()]+$/.test(trimmed);
 
     const payload = {
-      ...(isPhone ? { phone: emailOrPhone } : { email: emailOrPhone }),
+      ...(isPhone ? { phone: emailOrPhone } : { email: trimmed.toLowerCase() }),
       password,
     };
 
